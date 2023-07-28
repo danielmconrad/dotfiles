@@ -10,7 +10,6 @@ log_section "Installing SSH"
 
 touch ~/.ssh/config
 echo "Host *\n  AddKeysToAgent yes\n  UseKeychain yes\n  IdentityFile ~/.ssh/id_ed25519" > ~/.ssh/config
-echo "Host github.com\n  Host github.com\n  Hostname ssh.github.com\n  Port 443" >> ~/.ssh/config
 
 ssh-keygen -t ed25519 -C "daniel.m.conrad@gmail.com" -f ~/.ssh/id_ed25519
 eval "$(ssh-agent -s)"
@@ -29,10 +28,10 @@ pbcopy < ~/.ssh/id_ed25519.pub
 
 touch ~/.ssh/config
 echo "Host *\n  AddKeysToAgent yes\n  IdentityFile ~/.ssh/id_ed25519" > ~/.ssh/config
-echo "Host github.com\n  Host github.com\n  Hostname ssh.github.com\n  Port 443" >> ~/.ssh/config
 
 ssh-keygen -t ed25519 -C "daniel.m.conrad@gmail.com" -f ~/.ssh/id_ed25519
 eval "$(ssh-agent -s)"
+ssh-add ~/.ssh/id_ed25519
 
 log "Public SSH key displayed below to copy to GitHub"
 cat ~/.ssh/id_ed25519.pub
