@@ -11,15 +11,12 @@ alias con-remain="git stash && git fetch origin && git checkout main && git rese
 alias con-tag="git tag -a v$1 -m \"v$1\""
 alias con-uncache="git gc --prune=now --aggressive"
 
-# Mac Specific
-# ==============================================================================
+# Other
 {{ if eq .chezmoi.os "darwin" }}
   alias con-restart-audio="sudo kill $(pgrep -f coreaudiod)"
   alias code='open $@ -a "Visual Studio Code"'
 {{ end }}
 
-# Linux Specific
-# ==============================================================================
 {{ if eq .chezmoi.os "linux" }}
   alias con-sleep-display="xset dpms force standby"
 {{ end }}

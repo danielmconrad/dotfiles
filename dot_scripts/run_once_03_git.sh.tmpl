@@ -1,0 +1,16 @@
+#!/bin/sh
+
+{{ include "utilities.sh" }}
+
+log_section "Installing Git"
+
+{{ if eq .chezmoi.os "darwin" }}
+  install_brew git
+{{ end }}
+
+{{ if eq .chezmoi.os "linux" }}
+  install_apt git
+{{ end }}
+
+git config --global user.name "Daniel Conrad"
+git config --global user.email daniel.m.conrad@gmail.com
