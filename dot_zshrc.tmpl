@@ -1,28 +1,17 @@
 #!/bin/zsh
 
-# Oh My ZSH
+# Base
 export ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME="amuse"
 plugins=(git ssh-agent)
 autoload -Uz compinit && compinit
 
-# - Make
+# Plugins
 zstyle ':completion:*:*:make:*' tag-order 'targets'
-
-# - SSH
 zstyle :omz:plugins:ssh-agent agent-forwarding on
 zstyle :omz:plugins:ssh-agent identities id_rsa
 
 source $ZSH/oh-my-zsh.sh
-
-# Editor
-export EDITOR="vim"
-if [[ "$(uname)" == "Darwin" ]]; then
-  export EDITOR="code --wait"
-fi
-if [[ "$(uname)" == "Linux" ]]; then
-  export EDITOR="code --wait"
-fi
 
 # Prompt & Cursor
 setopt promptsubst
@@ -36,5 +25,6 @@ bindkey "^[[1;9D" backward-word
 bindkey "^[a" beginning-of-line
 bindkey "^[e" end-of-line
 
-# Utilities
+# Customizations
 source "$HOME/.aliases"
+source "$HOME/.env"

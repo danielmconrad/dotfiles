@@ -1,30 +1,8 @@
 #!/bin/sh
 
-{{ include "utils.sh" }}
+{{ include "installer.sh" }}
 
 log_section "Installing SSH"
-
-# MacOS
-# ==============================================================================
-{{ if eq .chezmoi.os "darwin" }}
-
-touch ~/.ssh/config
-echo "Host *\n  AddKeysToAgent yes\n  UseKeychain yes\n  IdentityFile ~/.ssh/id_ed25519" > ~/.ssh/config
-
-ssh-keygen -t ed25519 -C "daniel.m.conrad@gmail.com" -f ~/.ssh/id_ed25519
-eval "$(ssh-agent -s)"
-ssh-add --apple-use-keychain ~/.ssh/id_ed25519
-
-log "Public SSH key displayed below to copy to GitHub"
-cat ~/.ssh/id_ed25519.pub
-pbcopy < ~/.ssh/id_ed25519.pub
-
-{{ end }}
-
-
-# Linux
-# ==============================================================================
-{{ if eq .chezmoi.os "linux" }}
 
 touch ~/.ssh/config
 echo "Host *\n  AddKeysToAgent yes\n  IdentityFile ~/.ssh/id_ed25519" > ~/.ssh/config
@@ -34,6 +12,6 @@ eval "$(ssh-agent -s)"
 ssh-add ~/.ssh/id_ed25519
 
 log "Public SSH key displayed below to copy to GitHub"
+log "----------------"
 cat ~/.ssh/id_ed25519.pub
-
-{{ end }}
+log "----------------"

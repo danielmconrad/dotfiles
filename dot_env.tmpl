@@ -1,0 +1,12 @@
+#!/bin/zsh
+
+# Editor
+export EDITOR="vim"
+
+{{ if eq .chezmoi.os "darwin" }}
+  export EDITOR="code --wait"
+{{ end }}
+
+{{ if eq .chezmoi.os "linux" }}
+  export EDITOR="code --wait"
+{{ end }}
