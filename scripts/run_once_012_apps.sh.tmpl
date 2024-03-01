@@ -26,10 +26,5 @@ log_section "Installing Apps & Configurations"
   install_snap code --classic
   install_snap slack
   install_snap spotify
-
-  sudo addgroup --system docker
-  sudo gpasswd -a $USER docker
-  newgrp docker
-  install_snap docker --edge
 {{ end }}
 
