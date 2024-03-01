@@ -1,0 +1,17 @@
+#!/bin/sh
+
+{{ include "scripts/utilities.sh" }}
+
+log_section "Installing Docker"
+
+{{ if eq .chezmoi.os "darwin" }}
+  install_brew_cask docker
+{{ end }}
+
+{{ if eq .chezmoi.os "linux" }}
+  sudo addgroup --system docker || echo "docker group already added"
+  sudo gpasswd -a $USER docker || echo "docker password already set"
+  newgrp docker || echo "docker group already added"
+  install_snap docker --edge
+{{ end }}
+

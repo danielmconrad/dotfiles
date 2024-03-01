@@ -19,13 +19,6 @@ log_section "Installing Apps & Configurations"
   install_brew_cask soundsource
   install_brew_cask spotify
   install_brew_cask tableplus
-
-  install_brew_cask iterm2
-  yes | cp -rf ~/.local/share/chezmoi/configs/iterm2.plist ~/Library/Preferences/com.googlecode.iterm2.plist
-
-  install_brew_cask spectacle
-  mkdir -p ~/Library/Application\ Support/Spectacle/
-  yes | cp -rf ~/.local/share/chezmoi/configs/spectacle.json ~/Library/Application\ Support/Spectacle/Shortcuts.json
 {{ end }}
 
 {{ if eq .chezmoi.os "linux" }}
@@ -37,6 +30,6 @@ log_section "Installing Apps & Configurations"
   sudo addgroup --system docker
   sudo gpasswd -a $USER docker
   newgrp docker
-  install_snap --edge docker
+  install_snap docker --edge
 {{ end }}
 

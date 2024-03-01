@@ -5,9 +5,13 @@
 log_section "Installing Preqrequisites"
 
 {{ if eq .chezmoi.os "darwin" }}
-  install_brew curl make vim
+  install_brew curl
+  install_brew make
+  install_brew vim
 {{ end }}
 
 {{ if eq .chezmoi.os "linux" }}
-  install_apt curl make vim
+  install_apt curl
+  install_apt make
+  install_apt vim
 {{ end }}

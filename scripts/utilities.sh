@@ -8,13 +8,13 @@ NC='\033[0m'
 log_section() {
   echo
   printf '%*s\n' "${COLUMNS:-$(tput cols)}" '' | tr ' ' -
-  printf "${YELLOW}[PROFILE]${NC} $1\n"
+  printf "${YELLOW}[DOTFILES]${NC} $1\n"
   printf '%*s\n' "${COLUMNS:-$(tput cols)}" '' | tr ' ' -
   echo
 }
 
 log() {
-  printf "${BLUE}[PROFILE]${NC} $1\n"
+  printf "${BLUE}[DOTFILES]${NC} $1\n\n"
 }
 
 install_brew() {
@@ -24,19 +24,19 @@ install_brew() {
 }
 
 install_brewmake_cask() {
-  log "Installing $@ via brew cask"
+  log "Installing $1 via brew cask"
   brew uninstall --cask $1 || echo "$1 uninstalled"
-  brew install --cask -f $1
+  brew install --cask -f $@
 }
 
 install_apt() {
-  log "Installing $@ via apt"
-  sudo apt-get uninstall $@ || echo "$@ uninstalled"
+  log "Installing $1 via apt"
+  sudo apt-get uninstall $1 || echo "$1 uninstalled"
   sudo apt-get install -y $@
 }
 
 install_snap() {
-  log "Installing $@ via snap"
-  sudo snap uninstall $@ || echo "$@ uninstalled"
+  log "Installing $1 via snap"
+  sudo snap remove $1 || echo "$1 uninstalled"
   sudo snap install $@
 }
