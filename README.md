@@ -1,5 +1,5 @@
 # Installation
 
 ```sh
-  chezmoi init --apply --verbose danielmconrad
+  sh -c "$(wget -qO- get.chezmoi.io)" -- init --apply danielmconrad
 ```
