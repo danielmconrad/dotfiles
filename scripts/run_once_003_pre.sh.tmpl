@@ -1,0 +1,13 @@
+#!/bin/sh
+
+{{ include "scripts/utilities.sh" }}
+
+log_section "Installing Preqrequisites"
+
+{{ if eq .chezmoi.os "darwin" }}
+  install_brew curl make vim
+{{ end }}
+
+{{ if eq .chezmoi.os "linux" }}
+  install_apt curl make vim
+{{ end }}

@@ -2,7 +2,7 @@
 
 {{ include "scripts/utilities.sh" }}
 
-log_section "Installing Shell"
+log_section "Installing ZSH"
 
 {{ if eq .chezmoi.os "darwin" }}
   install_brew zsh

@@ -5,7 +5,6 @@
 log_section "Installing Apps & Configurations"
 
 {{ if eq .chezmoi.os "darwin" }}
-  install_brew vim
   install_brew_cask appcleaner
   install_brew_cask balenaetcher
   install_brew_cask code
@@ -30,19 +29,10 @@ log_section "Installing Apps & Configurations"
 {{ end }}
 
 {{ if eq .chezmoi.os "linux" }}
-  install_apt make
-  install_apt python3
-  install_apt vim
-  install_apt python3
-  install_apt vim
-
   install_snap chromium
   install_snap code --classic
   install_snap slack
   install_snap spotify
-
-  install_apt gnome-tweaks
-  dconf load /org/gnome/terminal/legacy/profiles:/ < ~/.local/share/chezmoi/configs/gnome.dconf
 
   sudo addgroup --system docker
   sudo gpasswd -a $USER docker
