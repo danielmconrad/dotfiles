@@ -10,7 +10,6 @@ log_section "Installing Apps"
   install_brew_cask code
   install_brew_cask dashlane
   install_brew_cask discord
-  install_brew_cask google-chrome
   install_brew_cask imageoptim
   install_brew_cask licecap
   install_brew_cask slack
@@ -20,7 +19,6 @@ log_section "Installing Apps"
 {{ end }}
 
 {{ if eq .chezmoi.os "linux" }}
-  install_snap chromium
   install_snap code --classic
   install_snap slack
   install_snap spotify

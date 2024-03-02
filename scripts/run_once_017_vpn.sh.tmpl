@@ -1,0 +1,15 @@
+#!/bin/sh
+
+{{ include "scripts/utilities.sh" }}
+
+log_section "Installing VPN"
+
+{{ if eq .chezmoi.os "darwin" }}
+{{ end }}
+
+{{ if eq .chezmoi.os "linux" }}
+  wget https://www.expressvpn.works/clients/linux/expressvpn_3.64.0.0-1_amd64.deb
+  sudo dpkg -i expressvpn_3.64.0.0-1_amd64.deb
+  rm expressvpn_3.64.0.0-1_amd64.deb
+{{ end }}
+

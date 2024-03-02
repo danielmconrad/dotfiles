@@ -1,0 +1,18 @@
+#!/bin/sh
+
+{{ include "scripts/utilities.sh" }}
+
+log_section "Installing Browsers"
+
+{{ if eq .chezmoi.os "darwin" }}
+  install_brew_cask google-chrome
+{{ end }}
+
+{{ if eq .chezmoi.os "linux" }}
+  install_snap chromium
+
+  wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+  sudo dpkg -i google-chrome-stable_current_amd64.deb
+  rm google-chrome-stable_current_amd64.deb
+{{ end }}
+
