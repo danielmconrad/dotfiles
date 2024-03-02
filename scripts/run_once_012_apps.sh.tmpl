@@ -19,7 +19,7 @@ log_section "Installing Apps"
   install_brew_cask tableplus
 {{ end }}
 
-{{ if eq .osid "linux-debian" }}
+{{ if eq .chezmoi.osRelease.id "debian" }}
   install_snap chromium
   install_snap code --classic
   install_snap slack

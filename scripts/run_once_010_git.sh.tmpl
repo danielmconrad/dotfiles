@@ -8,7 +8,7 @@ log_section "Installing Git"
   install_brew git
 {{ end }}
 
-{{ if eq .osid "linux-debian" }}
+{{ if eq .chezmoi.osRelease.id "debian" }}
   install_apt git
 {{ end }}
 

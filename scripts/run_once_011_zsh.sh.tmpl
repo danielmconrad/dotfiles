@@ -8,7 +8,7 @@ log_section "Installing ZSH"
   install_brew zsh
 {{ end }}
 
-{{ if eq .osid "linux-debian" }}
+{{ if eq .chezmoi.osRelease.id "debian" }}
   install_apt zsh
 {{ end }}
 
@@ -23,7 +23,7 @@ git reset --hard HEAD
   sudo chsh -s "$(brew --prefix)/bin/zsh"
 {{ end }}
 
-{{ if eq .osid "linux-debian" }}
+{{ if eq .chezmoi.osRelease.id "debian" }}
   sudo chsh -s "$(which zsh)"
 {{ end }}
 
