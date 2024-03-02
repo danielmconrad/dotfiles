@@ -14,7 +14,7 @@ log_section() {
 }
 
 log() {
-  printf "${BLUE}[DOTFILES]${NC} $1\n\n"
+  printf "\n${BLUE}[DOTFILES]${NC} $1\n\n"
 }
 
 install_brew() {

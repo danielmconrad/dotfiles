@@ -9,9 +9,12 @@ log_section "Installing Docker"
 {{ end }}
 
 {{ if eq .chezmoi.os "linux" }}
-  sudo addgroup --system docker || echo "docker group already added"
-  sudo gpasswd -a $USER docker || echo "docker password already set"
-  newgrp docker || echo "docker group already added"
+  if ! grep -q docker /etc/group; then
+    sudo addgroup --system docker
+    gpasswd -a $USER docker || echo "docker password already set"
+    newgrp docker || echo "docker group already added"
+  fi
+
   install_snap docker --edge
 {{ end }}
 
