@@ -10,3 +10,6 @@ log_section "Installing Package Managers"
     eval "$(/opt/homebrew/bin/brew shellenv)"
   fi
 {{ end }}
+
+{{ if eq .chezmoi.os "linux" }}
+{{ end }}

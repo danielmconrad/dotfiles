@@ -2,7 +2,7 @@
 
 {{ include "scripts/utilities.sh" }}
 
-log_section "Installing Preqrequisites"
+log_section "Installing Prerequisites"
 
 {{ if eq .chezmoi.os "darwin" }}
   install_brew curl
