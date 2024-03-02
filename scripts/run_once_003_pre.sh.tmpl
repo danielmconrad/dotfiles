@@ -10,7 +10,7 @@ log_section "Installing Prerequisites"
   install_brew vim
 {{ end }}
 
-{{ if eq .chezmoi.osRelease.id "debian" }}
+{{ if eq .chezmoi.os "linux" }}
   install_apt curl
   install_apt make
   install_apt vim

@@ -17,6 +17,6 @@ alias con-uncache="git gc --prune=now --aggressive"
   alias code='open $@ -a "Visual Studio Code"'
 {{ end }}
 
-{{ if eq .chezmoi.osRelease.id "debian" }}
+{{ if eq .chezmoi.os "linux" }}
   alias con-sleep-display="xset dpms force standby"
 {{ end }}

@@ -9,6 +9,6 @@ log_section "Cleaning Up"
   zsh -c "autoload -U compaudit && compaudit | xargs chmod g-w,o-w"
 {{ end }}
 
-{{ if eq .chezmoi.osRelease.id "debian" }}
+{{ if eq .chezmoi.os "linux" }}
 {{ end }}
 

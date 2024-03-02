@@ -6,6 +6,6 @@ export EDITOR="vim"
   export EDITOR="code --wait"
 {{ end }}
 
-{{ if eq .chezmoi.osRelease.id "debian" }}
+{{ if eq .chezmoi.os "linux" }}
   export EDITOR="code --wait"
 {{ end }}

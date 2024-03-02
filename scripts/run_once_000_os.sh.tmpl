@@ -14,7 +14,7 @@ sudo echo ""
   defaults write com.google.Chrome "AppleEnableSwipeNavigateWithScrolls" -bool "false"
 {{ end }}
 
-{{ if eq .chezmoi.osRelease.id "debian" }}
+{{ if eq .chezmoi.os "linux" }}
   sudo apt-get update
   sudo apt-get upgrade -y
 {{ end }}
