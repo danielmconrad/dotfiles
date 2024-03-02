@@ -4,13 +4,13 @@
 
 log_section "Installing Prerequisites"
 
-{{ if eq .chezmoi.os "darwin" }}
+{{ if eq .osid "darwin" }}
   install_brew curl
   install_brew make
   install_brew vim
 {{ end }}
 
-{{ if eq .chezmoi.os "linux" }}
+{{ if eq .osid "linux-debian" }}
   install_apt curl
   install_apt make
   install_apt vim

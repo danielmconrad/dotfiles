@@ -4,7 +4,7 @@
 
 log_section "Installing Apps"
 
-{{ if eq .chezmoi.os "darwin" }}
+{{ if eq .osid "darwin" }}
   install_brew_cask appcleaner
   install_brew_cask balenaetcher
   install_brew_cask code
@@ -19,7 +19,7 @@ log_section "Installing Apps"
   install_brew_cask tableplus
 {{ end }}
 
-{{ if eq .chezmoi.os "linux" }}
+{{ if eq .osid "linux-debian" }}
   install_snap chromium
   install_snap code --classic
   install_snap slack

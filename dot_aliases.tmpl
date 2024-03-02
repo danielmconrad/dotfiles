@@ -12,11 +12,11 @@ alias con-tag="git tag -a v$1 -m \"v$1\""
 alias con-uncache="git gc --prune=now --aggressive"
 
 # Other
-{{ if eq .chezmoi.os "darwin" }}
+{{ if eq .osid "darwin" }}
   alias con-restart-audio="sudo kill $(pgrep -f coreaudiod)"
   alias code='open $@ -a "Visual Studio Code"'
 {{ end }}
 
-{{ if eq .chezmoi.os "linux" }}
+{{ if eq .osid "linux-debian" }}
   alias con-sleep-display="xset dpms force standby"
 {{ end }}

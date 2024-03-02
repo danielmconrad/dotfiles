@@ -6,7 +6,7 @@ log_section "Updating OS"
 
 sudo echo ""
 
-{{ if eq .chezmoi.os "darwin" }}
+{{ if eq .osid "darwin" }}
   defaults write com.apple.screencapture "location" -string "~/Downloads" && killall SystemUIServer
   defaults write com.apple.screencapture "show-thumbnail" -bool "false"
   defaults write com.apple.dock "mru-spaces" -bool "false"
@@ -14,7 +14,7 @@ sudo echo ""
   defaults write com.google.Chrome "AppleEnableSwipeNavigateWithScrolls" -bool "false"
 {{ end }}
 
-{{ if eq .chezmoi.os "linux" }}
+{{ if eq .osid "linux-debian" }}
   sudo apt-get update
   sudo apt-get upgrade -y
 {{ end }}
