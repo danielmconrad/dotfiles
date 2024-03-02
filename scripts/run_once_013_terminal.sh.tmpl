@@ -4,7 +4,7 @@
 
 log_section "Installing Terminals"
 
-{{ if eq .osid "darwin" }}
+{{ if eq .chezmoi.osRelease.id "debian" }}
   install_brew_cask iterm2
   yes | cp -rf ~/.local/share/chezmoi/configs/iterm2.plist ~/Library/Preferences/com.googlecode.iterm2.plist
 {{ end }}

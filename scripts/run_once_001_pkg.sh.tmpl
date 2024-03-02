@@ -4,7 +4,7 @@
 
 log_section "Installing Package Managers"
 
-{{ if eq .osid "darwin" }}
+{{ if eq .chezmoi.osRelease.id "debian" }}
   if ! hash brew 2>/dev/null; then
     CI=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     eval "$(/opt/homebrew/bin/brew shellenv)"

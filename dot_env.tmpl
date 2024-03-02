@@ -2,7 +2,7 @@
 
 export EDITOR="vim"
 
-{{ if eq .osid "darwin" }}
+{{ if eq .chezmoi.osRelease.id "debian" }}
   export EDITOR="code --wait"
 {{ end }}
 

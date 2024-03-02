@@ -1,6 +1,6 @@
 #!/bin/zsh
 
-{{ if eq .osid "darwin" }}
+{{ if eq .chezmoi.osRelease.id "debian" }}
   eval "$(/opt/homebrew/bin/brew shellenv)"
 
   export PATH="$PATH:$(brew --prefix)/sbin"

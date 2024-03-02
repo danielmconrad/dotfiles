@@ -6,7 +6,7 @@ log_section "Updating OS"
 
 sudo echo ""
 
-{{ if eq .osid "darwin" }}
+{{ if eq .chezmoi.osRelease.id "debian" }}
   defaults write com.apple.screencapture "location" -string "~/Downloads" && killall SystemUIServer
   defaults write com.apple.screencapture "show-thumbnail" -bool "false"
   defaults write com.apple.dock "mru-spaces" -bool "false"

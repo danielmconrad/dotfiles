@@ -4,7 +4,7 @@
 
 log_section "Cleaning Up"
 
-{{ if eq .osid "darwin" }}
+{{ if eq .chezmoi.osRelease.id "debian" }}
   brew doctor
   zsh -c "autoload -U compaudit && compaudit | xargs chmod g-w,o-w"
 {{ end }}

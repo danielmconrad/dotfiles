@@ -4,7 +4,7 @@
 
 log_section "Installing ZSH"
 
-{{ if eq .osid "darwin" }}
+{{ if eq .chezmoi.osRelease.id "debian" }}
   install_brew zsh
 {{ end }}
 
@@ -19,7 +19,7 @@ RUNZSH=no CHSH=no sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/mas
 cd ~/.oh-my-zsh
 git reset --hard HEAD
 
-{{ if eq .osid "darwin" }}
+{{ if eq .chezmoi.osRelease.id "debian" }}
   sudo chsh -s "$(brew --prefix)/bin/zsh"
 {{ end }}
 

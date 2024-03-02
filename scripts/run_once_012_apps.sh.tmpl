@@ -4,7 +4,7 @@
 
 log_section "Installing Apps"
 
-{{ if eq .osid "darwin" }}
+{{ if eq .chezmoi.osRelease.id "debian" }}
   install_brew_cask appcleaner
   install_brew_cask balenaetcher
   install_brew_cask code

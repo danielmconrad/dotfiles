@@ -4,7 +4,7 @@
 
 log_section "Installing Git"
 
-{{ if eq .osid "darwin" }}
+{{ if eq .chezmoi.osRelease.id "debian" }}
   install_brew git
 {{ end }}
 
