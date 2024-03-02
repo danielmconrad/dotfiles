@@ -4,7 +4,7 @@
 
 log_section "Installing Docker"
 
-{{ if eq .chezmoi.osRelease.id "debian" }}
+{{ if eq .chezmoi.os "darwin" }}
   install_brew_cask docker
 {{ end }}
 

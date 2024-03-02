@@ -4,7 +4,7 @@
 
 log_section "Installing Window Management"
 
-{{ if eq .chezmoi.osRelease.id "debian" }}
+{{ if eq .chezmoi.os "darwin" }}
   install_brew_cask spectacle
   mkdir -p ~/Library/Application\ Support/Spectacle/
   yes | cp -rf ~/.local/share/chezmoi/configs/spectacle.json ~/Library/Application\ Support/Spectacle/Shortcuts.json

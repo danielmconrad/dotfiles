@@ -4,7 +4,7 @@
 
 log_section "Installing Prerequisites"
 
-{{ if eq .chezmoi.osRelease.id "debian" }}
+{{ if eq .chezmoi.os "darwin" }}
   install_brew curl
   install_brew make
   install_brew vim
