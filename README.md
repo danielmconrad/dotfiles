@@ -4,11 +4,11 @@ Depending on your Operating System, you'll likely have either `wget` or `curl` p
 
 ### Common on macOS
 ```sh
-  sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply danielmconrad
+sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply danielmconrad
 ```
 
 ### Common on Ubuntu
 
 ```sh
-  sh -c "$(wget -qO- get.chezmoi.io)" -- init --apply danielmconrad
+sh -c "$(wget -qO- get.chezmoi.io)" -- init --apply danielmconrad
 ```
