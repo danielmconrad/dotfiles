@@ -8,6 +8,8 @@ log_section "Installing Package Managers"
   if ! hash brew 2>/dev/null; then
     CI=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     eval "$(/opt/homebrew/bin/brew shellenv)"
+  else
+    sudo chown -R $(whoami) $(brew --prefix)/*
   fi
 {{ end }}
 
