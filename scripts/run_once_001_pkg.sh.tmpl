@@ -4,6 +4,8 @@
 
 log_section "Installing Package Managers"
 
+sudo echo ""
+
 {{ if eq .chezmoi.os "darwin" }}
   if hash brew 2>/dev/null; then
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/uninstall.sh)"
