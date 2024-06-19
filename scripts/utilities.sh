@@ -26,7 +26,7 @@ install_brew() {
 
 install_brew_cask() {
   log "Installing $1 via brew cask"
-  brew uninstall --cask &>/dev/null
+  brew uninstall --cask $1 &>/dev/null
   echo "$1 uninstalled"
   brew install --cask -f $@
 }
