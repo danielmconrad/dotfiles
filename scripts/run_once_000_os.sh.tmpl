@@ -7,13 +7,11 @@ log_section "Updating OS"
 sudo echo ""
 
 {{ if eq .chezmoi.os "darwin" }}
+  log "Installing Xcode Command Line Tools" 
   xcode-select --install &> /dev/null
-  
-  until [ $(xcode-select --print-path &> /dev/null) ]; do 
-    sleep 5; 
-  done
+  until [ -e $(xcode-select --print-path &> /dev/null) ]; do sleep 5; done
 
-
+  log "Updating OS Configurations"
   defaults write com.apple.screencapture "location" -string "~/Downloads" && killall SystemUIServer
   defaults write com.apple.screencapture "show-thumbnail" -bool "false"
   defaults write com.apple.dock "mru-spaces" -bool "false"
