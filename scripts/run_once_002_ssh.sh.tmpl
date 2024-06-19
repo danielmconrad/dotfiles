@@ -4,6 +4,7 @@
 
 log_section "Installing SSH"
 
+mkdir -p ~/.ssh
 touch ~/.ssh/config
 echo "Host *\n  AddKeysToAgent yes\n  IdentityFile ~/.ssh/id_ed25519" > ~/.ssh/config
 
