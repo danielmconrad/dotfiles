@@ -1,6 +1,6 @@
 #!/bin/sh
 
-if [ $(uname -s) = "Darwin ]; then
+if [ $(uname -s) = "Darwin" ]; then
   if [ ! -e $(xcode-select --print-path &> /dev/null) ]; then xcode-select --install &> /dev/null; fi
   until [ -e $(xcode-select --print-path &> /dev/null) ]; do sleep 5; done
 fi
