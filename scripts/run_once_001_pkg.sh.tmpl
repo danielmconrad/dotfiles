@@ -9,6 +9,13 @@ sudo echo ""
 {{ if eq .chezmoi.os "darwin" }}
   if hash brew 2>/dev/null; then
     sudo /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/uninstall.sh)"
+
+    sudo rm -rf /usr/local/Homebrew/ 2> /dev/null
+    sudo rm -rf /usr/local/bin/ 2> /dev/null
+    sudo rm -rf /usr/local/etc/ 2> /dev/null
+    sudo rm -rf /usr/local/lib/ 2> /dev/null
+    sudo rm -rf /usr/local/share/ 2> /dev/null
+    sudo rm -rf /usr/local/var/ 2> /dev/null
   fi
 
   CI=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"  
