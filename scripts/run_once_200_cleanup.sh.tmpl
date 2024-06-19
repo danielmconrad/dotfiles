@@ -5,7 +5,7 @@
 log_section "Cleaning Up"
 
 {{ if eq .chezmoi.os "darwin" }}
-  brew doctor
+  brew doctor 2>/dev/null 
   zsh -c "autoload -U compaudit && compaudit | xargs chmod g-w,o-w"
 {{ end }}
 
