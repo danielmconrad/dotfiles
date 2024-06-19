@@ -9,7 +9,7 @@ sudo echo ""
 {{ if eq .chezmoi.os "darwin" }}
   xcode-select --install &> /dev/null
   
-  until $(xcode-select --print-path &> /dev/null); do 
+  until [ $(xcode-select --print-path &> /dev/null) ]; do 
     sleep 5; 
   done
 
