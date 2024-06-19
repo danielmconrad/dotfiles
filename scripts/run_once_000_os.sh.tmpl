@@ -7,8 +7,8 @@ log_section "Updating OS"
 sudo echo ""
 
 {{ if eq .chezmoi.os "darwin" }}
-  log "Installing Xcode Command Line Tools" 
-  xcode-select --install &> /dev/null
+  log "Installing XCode Command Line Tools" 
+  #xcode-select --install &> /dev/null
   until [ -e $(xcode-select --print-path &> /dev/null) ]; do sleep 5; done
 
   log "Updating OS Configurations"
