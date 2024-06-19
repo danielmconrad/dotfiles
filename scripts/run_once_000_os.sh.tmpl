@@ -8,7 +8,7 @@ sudo echo ""
 
 {{ if eq .chezmoi.os "darwin" }}
   log "Installing XCode Command Line Tools" 
-  if [ ! -e $(xcode-select --print-path &> /dev/null) ]; do xcode-select --install &> /dev/null; done
+  if [ ! -e $(xcode-select --print-path &> /dev/null) ]; then xcode-select --install &> /dev/null; fi
   until [ -e $(xcode-select --print-path &> /dev/null) ]; do sleep 5; done
 
   log "Updating OS Configurations"
