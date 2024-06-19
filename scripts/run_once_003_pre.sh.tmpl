@@ -8,10 +8,12 @@ log_section "Installing Prerequisites"
   install_brew curl
   install_brew make
   install_brew vim
+  install_brew chezmoi
 {{ end }}
 
 {{ if eq .chezmoi.os "linux" }}
   install_apt curl
   install_apt make
   install_apt vim
+  install_snap chezmoi
 {{ end }}
