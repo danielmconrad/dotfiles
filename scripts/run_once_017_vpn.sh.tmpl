@@ -5,6 +5,7 @@
 log_section "Installing VPN"
 
 {{ if eq .chezmoi.os "darwin" }}
+  brew install --cask expressvpn
 {{ end }}
 
 {{ if eq .chezmoi.os "linux" }}
