@@ -5,7 +5,6 @@
 log_section "Installing ZSH"
 
 {{ if eq .chezmoi.os "darwin" }}
-  if hash zsh 2>/dev/null; then uninstall_oh_my_zsh; fi
   install_brew zsh
 {{ end }}
 
