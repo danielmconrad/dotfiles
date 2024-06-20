@@ -1,7 +1,7 @@
 #!/bin/sh
 
 if [ $(uname -s) = "Darwin" ]; then
-  if [ ! -e $(xcode-select --print-path &> /dev/null) ]; then xcode-select --install &> /dev/null; fi
+  if [ "$(xcode-select --print-path 2> /dev/null)" = "" ]; then xcode-select --install &> /dev/null; fi
   printf "Waiting for XCode Command Line Tools to be installed..."
   until [ "$(xcode-select --print-path 2> /dev/null)" != "" ]; do sleep 5; printf '.'; done
   echo ""
