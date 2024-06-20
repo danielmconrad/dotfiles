@@ -2,7 +2,9 @@
 
 if [ $(uname -s) = "Darwin" ]; then
   if [ ! -e $(xcode-select --print-path &> /dev/null) ]; then xcode-select --install &> /dev/null; fi
-  until [ -e $(xcode-select --print-path &> /dev/null) ]; do sleep 5; done
+  printf "Waiting for XCode Command Line Tools to be installed..."
+  until [ "$(xcode-select --print-path 2> /dev/null)" != "" ]; do sleep 5; printf '.'; done
+  echo ""
 fi
 
 if [ command -v wget &> /dev/null ]; then
