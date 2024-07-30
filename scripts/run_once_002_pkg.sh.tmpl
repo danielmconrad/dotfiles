@@ -18,7 +18,7 @@ sudo echo ""
     sudo rm -rf /usr/local/var/ 2> /dev/null
   fi
 
-  CI=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"  
+  /usr/bin/su - "$current_user" -c 'NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"'
 {{ end }}
 
 {{ if eq .chezmoi.os "linux" }}
