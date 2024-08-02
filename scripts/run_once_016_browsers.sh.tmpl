@@ -5,7 +5,8 @@
 log_section "Installing Browsers"
 
 {{ if eq .chezmoi.os "darwin" }}
-  install_brew_cask google-chrome
+  # Items that be be managed by MDM
+  # install_brew_cask google-chrome
 {{ end }}
 
 {{ if eq .chezmoi.os "linux" }}
