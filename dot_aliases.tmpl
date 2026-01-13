@@ -6,6 +6,8 @@ alias con-docker-clean-unused='docker system prune --all --force --volumes'
 
 # Git
 alias con-delete-branches="git branch | grep -v 'main\|master' | xargs git branch -D"
+alias con-prune-branches="git fetch --prune && git branch -vv | grep ': gone]' | awk '{print $1}' | xargs -r git branch -D"
+alias con-prune-branches-dryrun="git fetch --prune && git branch -vv | grep ': gone]' | awk '{print $1}'"
 alias con-git-author="git config user.name 'Daniel Conrad' && git config user.email 'daniel.m.conrad@gmail.com'"
 alias con-remain="git stash && git fetch origin && git checkout main && git reset --hard origin/main && git remote prune origin"
 alias con-tag="git tag -a v$1 -m \"v$1\""
@@ -20,5 +22,3 @@ alias con-uncache="git gc --prune=now --aggressive"
 {{ if eq .chezmoi.os "linux" }}
   alias con-sleep-display="xset dpms force standby"
 {{ end }}
-
-# For Sal's sake
