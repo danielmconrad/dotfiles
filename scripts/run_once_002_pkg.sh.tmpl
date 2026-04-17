@@ -19,7 +19,14 @@ sudo echo ""
   fi
 
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-  eval "$(/usr/local/bin/brew shellenv zsh)"
+
+  {{ if eq .chezmoi.arch "arm64" }}
+    eval "$(/opt/homebrew/bin/brew shellenv zsh)"
+  {{ end }}
+
+  {{ if eq .chezmoi.arch "x86_64" }}
+    eval "$(/usr/local/bin/brew shellenv zsh)"
+  {{ end }}
 {{ end }}
 
 {{ if eq .chezmoi.os "linux" }}
