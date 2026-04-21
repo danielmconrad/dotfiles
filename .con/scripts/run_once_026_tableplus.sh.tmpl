@@ -1,0 +1,9 @@
+#!/bin/sh
+
+{{ include "scripts/utilities.sh" }}
+
+log_section "Installing TablePlus"
+
+{{ if eq .chezmoi.os "darwin" }}
+  install_brew_cask tableplus
+{{ end }}

@@ -1,0 +1,14 @@
+#!/bin/sh
+
+{{ include "scripts/utilities.sh" }}
+
+log_section "Installing Slack"
+
+{{ if eq .chezmoi.os "darwin" }}
+  install_brew_cask slack
+{{ end }}
+
+{{ if eq .chezmoi.os "linux" }}
+  install_snap slack
+{{ end }}
+

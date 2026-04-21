@@ -1,0 +1,13 @@
+#!/bin/sh
+
+{{ include "scripts/utilities.sh" }}
+
+log_section "Installing Visual Studio Code"
+
+{{ if eq .chezmoi.os "darwin" }}
+  install_brew_cask visual-studio-code
+{{ end }}
+
+{{ if eq .chezmoi.os "linux" }}
+  install_snap code --classic
+{{ end }}

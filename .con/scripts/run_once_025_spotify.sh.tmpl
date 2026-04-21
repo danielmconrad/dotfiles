@@ -1,0 +1,13 @@
+#!/bin/sh
+
+{{ include "scripts/utilities.sh" }}
+
+log_section "Installing Spotify"
+
+{{ if eq .chezmoi.os "darwin" }}
+  install_brew_cask spotify
+{{ end }}
+
+{{ if eq .chezmoi.os "linux" }}
+  install_snap spotify
+{{ end }}

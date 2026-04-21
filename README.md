@@ -5,11 +5,11 @@ Depending on your Operating System, you'll likely have either `wget` or `curl` p
 ### Common on macOS
 
 ```sh
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/danielmconrad/dotfiles/main/install.sh)"
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/danielmconrad/dotfiles/main/.con/install.sh)"
 ```
 
 ### Common on Ubuntu
 
 ```sh
-sh -c "$(wget -qO- https://raw.githubusercontent.com/danielmconrad/dotfiles/main/install.sh)"
+sh -c "$(wget -qO- https://raw.githubusercontent.com/danielmconrad/dotfiles/main/.con/install.sh)"
 ```

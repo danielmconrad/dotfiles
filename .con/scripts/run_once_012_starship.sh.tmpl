@@ -1,0 +1,9 @@
+#!/bin/sh
+
+{{ include "scripts/utilities.sh" }}
+
+log_section "Installing Starship"
+
+{{ if eq .chezmoi.os "darwin" }}
+  install_brew starship
+{{ end }}
