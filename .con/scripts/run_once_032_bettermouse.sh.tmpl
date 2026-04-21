@@ -1,0 +1,10 @@
+#!/bin/sh
+
+{{ include "scripts/utilities.sh" }}
+
+log_section "Installing Bettermouse"
+
+{{ if eq .chezmoi.os "darwin" }}
+  install_brew_cask bettermouse
+  yes | cp -rf ~/.local/share/chezmoi/.con/configs/bm_cfg_8811.plist ~/Library/Preferences/com.naotanhaocan.BetterMouse.plist
+{{ end }}
