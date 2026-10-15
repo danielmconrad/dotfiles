@@ -89,7 +89,7 @@
       "int" : 0
     },
     "hideMenubarIcon" : {
-      "bool" : false
+      "bool" : true
     },
     "ignoreDragSnapToo" : {
       "int" : 0
@@ -101,7 +101,7 @@
 
     },
     "launchOnLogin" : {
-      "bool" : false
+      "bool" : true
     },
     "minimumWindowHeight" : {
       "float" : 0
