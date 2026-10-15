@@ -12,6 +12,7 @@ alias con-git-author="git config user.name 'Daniel Conrad' && git config user.em
 alias con-remain="git stash && git fetch origin && git checkout main && git reset --hard origin/main && git remote prune origin"
 alias con-tag="git tag -a v$1 -m \"v$1\""
 alias con-uncache="git gc --prune=now --aggressive"
+alias con-commit-feedback="git add . && git commit -am 'Addresses Feedback' && git push"
 
 # Other
 {{ if eq .chezmoi.os "darwin" }}
