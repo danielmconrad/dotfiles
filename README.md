@@ -54,8 +54,9 @@ daniel.conrad@JXGF6YK2F5 · MacBook Pro · macOS 26.6.2 arm64 · 2026-10-15
 | `.chezmoi.toml.tmpl` | Per-machine config: email prompt and Dashlane hook |
 | `.config/` | App settings the scripts copy into place: iTerm2, Rectangle, BetterMouse, GNOME Terminal |
 | `.install/` | Bootstrap script, Dashlane hook, and shared shell helpers |
+| `AGENTS.md` | Conventions for AI coding agents working in this repo |
 
-chezmoi ignores everything whose name starts with `.`, apart from its own `.chezmoi*` files, so `.config/` and `.install/` never end up in your home directory.
+chezmoi ignores everything whose name starts with `.`, apart from its own `.chezmoi*` files, so `.config/` and `.install/` never end up in your home directory. `README.md` and `AGENTS.md` stay out through [`.chezmoiignore`](.chezmoiignore).
 
 ## Everyday use
 
