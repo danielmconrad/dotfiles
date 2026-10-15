@@ -1,16 +1,16 @@
 #!/bin/sh
 
-{{ include ".con/utilities.sh" }}
+{{ include ".utilities.sh" }}
 
 log_section "Installing Terminals"
 
 {{ if eq .chezmoi.os "darwin" }}
   install_brew_cask iterm2
-  yes | cp -rf ~/.local/share/chezmoi/.con/configs/iterm2.plist ~/Library/Preferences/com.googlecode.iterm2.plist
+  yes | cp -rf ~/.local/share/chezmoi/.config/iterm2.plist ~/Library/Preferences/com.googlecode.iterm2.plist
 {{ end }}
 
 {{ if eq .chezmoi.os "linux" }}
   install_apt gnome-tweaks
-  dconf load /org/gnome/terminal/legacy/profiles:/ < ~/.local/share/chezmoi/.con/configs/gnome.dconf
+  dconf load /org/gnome/terminal/legacy/profiles:/ < ~/.local/share/chezmoi/.config/gnome.dconf
 {{ end }}
 

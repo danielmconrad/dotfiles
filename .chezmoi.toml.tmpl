@@ -7,4 +7,4 @@
   command = {{ joinPath .chezmoi.homeDir ".local/bin/dcli" | quote }}
 
 [hooks.read-source-state.pre]
-  command = {{ joinPath .chezmoi.sourceDir ".con/install-dcli.sh" | quote }}
+  command = {{ joinPath .chezmoi.sourceDir ".install-dcli.sh" | quote }}

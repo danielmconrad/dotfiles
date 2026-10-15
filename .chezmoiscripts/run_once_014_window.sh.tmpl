@@ -1,6 +1,6 @@
 #!/bin/sh
 
-{{ include ".con/utilities.sh" }}
+{{ include ".utilities.sh" }}
 
 log_section "Installing Window Management"
 
@@ -8,7 +8,7 @@ log_section "Installing Window Management"
   install_brew_cask rectangle
   mkdir -p ~/Library/Application\ Support/Rectangle/
 
-  yes | cp -rf ~/.local/share/chezmoi/.con/configs/rectangle.json ~/Library/Application\ Support/Rectangle/RectangleConfig.json
+  yes | cp -rf ~/.local/share/chezmoi/.config/rectangle.json ~/Library/Application\ Support/Rectangle/RectangleConfig.json
 {{ end }}
 
 {{ if eq .chezmoi.os "linux" }}
