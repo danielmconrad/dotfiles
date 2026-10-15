@@ -1,0 +1,10 @@
+{{- $email := promptStringOnce . "email" "Email address" -}}
+
+[data]
+  email = {{ $email | quote }}
+
+[dashlane]
+  command = {{ joinPath .chezmoi.homeDir ".local/bin/dcli" | quote }}
+
+[hooks.read-source-state.pre]
+  command = {{ joinPath .chezmoi.sourceDir ".con/install-dcli.sh" | quote }}

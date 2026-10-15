@@ -1,0 +1,32 @@
+#!/bin/sh
+
+{{ include ".con/utilities.sh" }}
+{{ include ".con/ssh.sh" }}
+
+log_section "Installing GitHub CLI"
+
+{{ if eq .chezmoi.os "darwin" }}
+  install_brew gh
+{{ end }}
+
+{{ if eq .chezmoi.os "linux" }}
+  install_apt gh
+{{ end }}
+
+if ! gh auth status --hostname github.com > /dev/null 2>&1; then
+  log "Logging in to GitHub"
+  gh auth login --hostname github.com --git-protocol ssh --web --skip-ssh-key --scopes admin:public_key
+elif ! gh auth status --hostname github.com 2>&1 | grep -q "admin:public_key"; then
+  log "Granting the GitHub CLI access to SSH keys"
+  gh auth refresh --hostname github.com --scopes admin:public_key
+fi
+
+key="$(cut -d " " -f 1,2 ~/.ssh/id_ed25519.pub)"
+
+if gh api user/keys --jq ".[].key" | grep -qxF "$key"; then
+  log "SSH key is already on GitHub, skipping"
+else
+  title="$(ssh_key_label "$(date -r ~/.ssh/id_ed25519 +%Y-%m-%d)")"
+  log "Adding SSH key to GitHub as \"$title\""
+  gh ssh-key add ~/.ssh/id_ed25519.pub --title "$title"
+fi
