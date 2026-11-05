@@ -1,0 +1,13 @@
+#!/bin/sh
+
+{{ include ".install/utilities.sh" }}
+
+log_section "Installing uv"
+
+{{ if eq .chezmoi.os "darwin" }}
+  install_brew uv
+{{ end }}
+
+{{ if eq .chezmoi.os "linux" }}
+  curl -LsSf https://astral.sh/uv/install.sh | sh
+{{ end }}

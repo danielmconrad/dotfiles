@@ -1,0 +1,13 @@
+#!/bin/sh
+
+{{ include ".install/utilities.sh" }}
+
+log_section "Installing VLC"
+
+{{ if eq .chezmoi.os "darwin" }}
+  install_brew_cask vlc
+{{ end }}
+
+{{ if eq .chezmoi.os "linux" }}
+  install_snap vlc
+{{ end }}

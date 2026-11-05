@@ -1,0 +1,13 @@
+#!/bin/sh
+
+{{ include ".install/utilities.sh" }}
+
+log_section "Installing Ollama"
+
+{{ if eq .chezmoi.os "darwin" }}
+  install_brew ollama
+{{ end }}
+
+{{ if eq .chezmoi.os "linux" }}
+  curl -fsSL https://ollama.com/install.sh | sh
+{{ end }}

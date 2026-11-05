@@ -1,0 +1,13 @@
+#!/bin/sh
+
+{{ include ".install/utilities.sh" }}
+
+log_section "Installing Terraform"
+
+{{ if eq .chezmoi.os "darwin" }}
+  install_brew hashicorp/tap/terraform
+{{ end }}
+
+{{ if eq .chezmoi.os "linux" }}
+  install_snap terraform --classic
+{{ end }}

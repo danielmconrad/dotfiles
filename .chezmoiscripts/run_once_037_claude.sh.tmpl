@@ -1,0 +1,9 @@
+#!/bin/sh
+
+{{ include ".install/utilities.sh" }}
+
+log_section "Installing Claude"
+
+{{ if eq .chezmoi.os "darwin" }}
+  install_brew_cask claude
+{{ end }}

@@ -34,7 +34,7 @@ install.sh ──▶ chezmoi init ──▶ dcli hook ──▶ run_once scripts
 |---|---|
 | `000`–`004` | SSH key, OS defaults, Homebrew, core tools, GitHub CLI and SSH key upload |
 | `010`–`018` | Git, zsh with oh-my-zsh, Starship, iTerm2, Rectangle, Docker, browsers, VPN, mise |
-| `019`–`032` | Apps: AppCleaner, Spotify, VS Code, Slack, Postman, BetterMouse and more |
+| `019`–`039` | Apps and tools: AppCleaner, Spotify, VS Code, Slack, Postman, BetterMouse, Terraform, Tailscale, uv, Ollama, Claude and more |
 | `200` | Cleanup |
 
 ### SSH keys
@@ -66,7 +66,7 @@ chezmoi diff             # preview what would change
 chezmoi edit ~/.zshrc    # edit a dotfile's source
 ```
 
-**Adding an app:** copy one of the app scripts, give it the next free number, and change the `install_brew_cask` line.
+**Adding an app:** copy one of the app scripts, give it the next free number, and change the `install_brew_cask` line. `install_brew` and `install_brew_cask` skip anything already installed, including apps put in place by an MDM such as Kandji. Use `reinstall_brew` or `reinstall_brew_cask` to force a fresh install.
 
 **Updating app settings:** export the app's current preferences into `.config/`. The matching script copies them into place on the next install.
 

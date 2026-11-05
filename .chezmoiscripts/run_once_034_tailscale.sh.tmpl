@@ -1,0 +1,14 @@
+#!/bin/sh
+
+{{ include ".install/utilities.sh" }}
+
+log_section "Installing Tailscale"
+
+{{ if eq .chezmoi.os "darwin" }}
+  install_brew tailscale
+  start_brew_service tailscale --root
+{{ end }}
+
+{{ if eq .chezmoi.os "linux" }}
+  curl -fsSL https://tailscale.com/install.sh | sh
+{{ end }}
